@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Socket.IO chat</title>
     <style>
-      body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
 
-      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
-      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: absolute; bottom: 0; left: 0; width: 100%; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+      #input { border: none; background: #efefef; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
       #input:focus { outline: none; }
       #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
 
@@ -17,11 +17,29 @@
     </style>
     <link href="./src/styles/tailwind.css" rel="stylesheet">
   </head>
-  <body>
-    <ul id="messages"></ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
-    </form>
+  <body class="">
+    <!-- Use h-dvh for dynamic viewport height -->
+<div class="flex flex-col h-dvh overflow-hidden"> 
+    <!-- Top Bar -->
+    <div class="bg-slate-900 h-[32px] w-full flex-none"></div> 
+  
+    <!-- Grid Container: Use flex-1 to fill remaining height -->
+    <div class="grid grid-cols-[64px_200px_1fr_100px] flex-1 min-h-0"> 
+      <div class="bg-slate-900 h-full"></div>
+      <div class="bg-slate-700 h-full"></div>
+      <div class="relative flex flex-col h-full overflow-y-auto">
+        <!-- Message list needs to grow and scroll -->
+        <ul id="messages" class="flex-1 flex flex-col-reverse overflow-y-auto"></ul> 
+        <form id="form" class="p-4 border-t border-slate-700">
+          <input id="input" class="w-full" autocomplete="off" />
+          <button>Send</button>
+        </form>
+      </div>
+      <div class="bg-slate-800 h-full"></div>
+    </div>
+  </div>
+  
+    
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();

@@ -10,9 +10,7 @@ const io = new Server(server);
 
 const __dirname = dirname(fileURLToPath(import.meta.url)) + '/public';
 
-app.get('/', (req, res) => {
-  res.sendFile(join(__dirname, 'index.html'));
-});
+app.use(express.static('public'));
 
 io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
