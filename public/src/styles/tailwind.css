@@ -416,8 +416,14 @@
     border-top-style: var(--tw-border-style);
     border-top-width: 1px;
   }
+  .border-slate-500 {
+    border-color: var(--color-slate-500);
+  }
   .border-slate-700 {
     border-color: var(--color-slate-700);
+  }
+  .border-slate-900 {
+    border-color: var(--color-slate-900);
   }
   .bg-indigo-400 {
     background-color: var(--color-indigo-400);
@@ -506,6 +512,9 @@
   }
   .text-gray-400 {
     color: var(--color-gray-400);
+  }
+  .lowercase {
+    text-transform: lowercase;
   }
   .underline {
     text-decoration-line: underline;

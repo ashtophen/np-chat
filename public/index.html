@@ -29,32 +29,32 @@
             <div class="w-full">
               <h1 id="username-label"class="text-left text-gray-100 pl-3">username/email:</h1>
             </div>
-            <input id="username-field" minlength="3" class="border-2 user-invalid:border-red-500 user-valid:border-green-500 bg-white rounded-md m-2 p-1" required/>
+            <input id="username-field" name="username" minlength="3" class="border-2 border-slate-700 user-invalid:border-red-500 user-valid:border-green-500 bg-white rounded-md m-2 p-1" required/>
           </div>
           <div id="email-block" class="hidden flex flex-col w-full justify-center mb-3">
             <div class="w-full">
               <h1 class="text-left text-gray-100 pl-3">email:</h1>
             </div>
-            <input id="email-field" type="email" class="bg-white rounded-md m-2 p-1"/>
+            <input id="email-field" name="email" type="email" class="bg-white rounded-md m-2 p-1 border-2 border-slate-700 user-invalid:border-red-500 user-valid:border-green-500" disabled/>
           </div>
           <div id="password-block"class="flex flex-col justify-center mb-3">
             <div class="w-full">
               <h1 class="pl-3 text-gray-100">password:</h1>
             </div>
-            <input id="password-field" type="password" class="bg-white rounded-md m-2 p-1" required/>
+            <input id="password-field" name="password" type="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase, and one lowercase letter, and at least 8 characters" class="bg-white rounded-md m-2 p-1 border-2 border-slate-700 user-invalid:border-red-500 user-valid:border-green-500" required autocomplete="current-password"/>
           </div>
           <div id="password-check-block"class="hidden flex flex-col justify-center">
             <div class="w-full">
               <h1 class="pl-3 text-gray-100">re-enter password:</h1>
             </div>
-            <input id="password-check-field" type="password" class="bg-white rounded-md m-2 p-1"/>
+            <input id="password-check-field" name="password-chk"type="password" class="bg-white rounded-md m-2 p-1 border-2 border-slate-700 user-invalid:border-red-500 user-valid:border-green-500" disabled/>
           </div>
         </div>
         <div class="p-3 flex items-center">
         <input type="checkbox" id="remember-checkbox" class="w-[30px] h-[30px]">
         <label class="text-gray-100 pl-3" for="remember">Remember Me.</label>
       </div>
-          <input class="p-2 bg-slate-400 w-full rounded-lg" type="submit" value="enter">
+          <input class="p-2 bg-slate-400 w-full rounded-lg" type="submit" id="submit" value="enter">
         </form>
       </div>
       <button id="signup/login-btn" class="absolute bottom-0 text-xl shadow-lg text-white-400 m-4 p-2 bg-slate-400 rounded-lg select-none hover:bg-slate-500 active:bg-slate-300 active:scale-90">Sign Up</button>

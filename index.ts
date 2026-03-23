@@ -14,6 +14,12 @@ io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
       console.log('message: ' + msg);
     });
+    socket.on('login-req', (loginFormData) => {
+        console.log(loginFormData);
+    })
+    socket.on('signup-req', (loginFormData) => {
+        console.log(loginFormData);
+    })
   });
 
 const db = new Database("main.sqlite", { create: true, strict: true });
